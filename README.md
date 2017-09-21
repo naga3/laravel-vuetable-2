@@ -2,6 +2,8 @@
 
 [vuetable-2](https://github.com/ratiw/vuetable-2)というVue用の高機能なテーブルコンポーネントを見つけたので、Laravelをバックエンドにして使ってみたサンプルです。
 
+https://github.com/naga3/laravel-vuetable-2
+
 # プロジェクト作成
 
 まず適当な名前でプロジェクトを作成します。
@@ -188,16 +190,16 @@ export default {
 </script>
 ```
 
-ブラウザで確認すると、スタイルは当たっていませんが、ページネーションが動くはずです。
+ブラウザで確認すると、スタイルは当たっていませんが、ページネーションは動くはずです。
 
 - `VuetablePagination`コンポーネントでページネーションを表示します。
-- Laravelのページネーションデータと合わせるために、Vuetableコンポーネントの`pagination-path`属性をセットしています。
+- Laravelの`paginate`メソッドから返されるデータと合わせるために、Vuetableコンポーネントの`pagination-path`属性をセットしています。
 - API側から正常にデータを取得できたとき、Vuetableコンポーネントの`pagination-data`イベントが発火するので、そのときにVuetablePaginationコンポーネントの`setPaginationData`メソッドへページネーションデータを渡してページネーションを構築します。
 - ページネーションを操作したとき、VuetablePaginationコンポーネントの`change-page`イベントが発火するので、そのときVuetableコンポーネントの`changePage`メソッドへページ情報を渡して当該ページを取得します。
 
 ## スタイリング
 
-Vuetableは[Semantic UI](https://semantic-ui.com/)の使用を前提にしています。Bootstrapの場合はページネーション用のスタイリングを変更する必要があります。
+Vuetableは[Semantic UI](https://semantic-ui.com/)の使用を前提にしています。LaravelのデフォルトはBootstrapですので、スタイリングを変更してやります。
 
 `resources/assets/js/components/Example.vue`
 
